@@ -1,0 +1,17 @@
++#################
++## Eclipse
++#################
++
++bin/
++tmp/
++*.tmp
++*.bak
++
++# CDT-specific
++.cproject
++
++# PDT-specific
++.buildpath
++*.class
++*.zip
++*.rar
