@@ -1,0 +1,33 @@
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form id="form" >
+            <div align="center" >
+                <table style="height: 700px" width="100%">
+                    <tr valign="middle" align="center">
+                        <td>
+                            <p:commandButton id="modalDialogButton" value="Modal" onclick="PF('dlg2').show();" type="button"/>
+                        </td>
+                    </tr>
+                    <tr valign="middle" align="center">
+                        <td>
+                            <p:dialog id="modalDialog" header="Relação Bruto X Impostos" width="500px" position="center"
+                                      widgetVar="dlg2" modal="true" closeOnEscape="true" resizable="false" > 
+                                <p:pieChart id="grafico" value="#{impostoMB.grafico}"
+                                            legendPosition="e" fill="false" showDataLabels="true"  
+                                            sliceMargin="5" diameter="150"
+                                            style="width:400px;height:300px"/>
+                            </p:dialog>
+                        </td>
+                    </tr>
+                </table>
+            </div>            
+        </h:form>
+    </h:body>
+</html>

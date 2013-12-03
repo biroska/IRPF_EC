@@ -1,0 +1,38 @@
+fundo{
+    background-color: cadetblue;
+}
+
+centralizar{
+    text-align: center !important;
+}
+
+body.pagina{
+    background-color:cadetblue;
+}
+
+table.pagina{
+    horizontal-align: center;
+    border-style: hidden !important;
+    margin: 0 auto;
+}
+
+semBorda{
+    border: 0px;
+}
+
+.semBorda tr td {
+    border: none;
+}
+
+.ui-widget-content td, .ui-widget-content tr
+{
+/*    border-style: none !important */
+}
+
+negrito{
+    font-weight:bold;
+}
+
+.alDireita{ 
+    text-align: right;
+}

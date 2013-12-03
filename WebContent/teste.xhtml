@@ -1,0 +1,203 @@
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:body>
+        <ui:composition template="/template/layout.xhtml">
+            <ui:define name="corpo">
+                <h:form id="impostos" >
+                    <div align="center" >
+                        <table width="100%" >
+                            <tr valign="middle" align="center">
+                                <td>
+                                    <p:dataTable id="fecap" var="tabela" value="#{impostoMB.pagto.teste}"  >
+                                        <f:facet name="header"> <h:outputText value="#{msg.fecap}" /> </f:facet>
+                                        <p:column > 
+                                            <p:panelGrid columns="1" styleClass="semBorda" >
+                                                <h:outputText value="Bruto"/>
+                                                <h:outputText value="Imposto" />
+                                                <h:outputText value="Outros" />
+                                                <h:outputText value="Líquido" />
+                                            </p:panelGrid>
+                                        </p:column>
+
+                                        <p:columns value="#{impostoMB.pagto.valores}" var="column" columnIndexVar="colIndex">
+                                            <f:facet name="header">
+                                                #{column.mes}
+                                            </f:facet>
+
+                                            <p:inputText id="vlrBrutoF" value="#{column.bruto}" size="5" maxlength="8" style="text-align: right;" >
+                                                <f:convertNumber type="currency" currencySymbol="" locale="pt-BR" />
+                                            </p:inputText>
+                                            
+                                            <p:inputText id="vlrImposto" value="#{column.imposto}" size="5" maxlength="8" style="text-align: right;" >
+                                                <f:convertNumber type="currency" currencySymbol="" locale="pt-BR" />
+                                            </p:inputText>
+
+                                            <p:inputText id="vlrOutros" value="#{column.outros}" size="5" maxlength="8" style="text-align: right;" >
+                                                <f:convertNumber type="currency" currencySymbol="" locale="pt-BR" />
+                                            </p:inputText>
+                                            
+                                            <p:inputText id="vlrLiquidoF" value="#{column.liquido}" size="5" maxlength="8" style="text-align: right;" >
+                                                <f:convertNumber type="currency" currencySymbol="" locale="pt-BR" />
+                                            </p:inputText>
+                                        </p:columns>
+
+                                    </p:dataTable>  
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <p:panelGrid id="panelTotais1" >
+                                        <p:row>
+                                            <f:facet name="header">
+                                                <h:outputText value="#{msg.totais}" />
+                                            </f:facet>
+                                        </p:row>
+                                        <p:row>
+                                            <p:column>
+                                                <h:outputText value="#{msg.bruto}" style="font-weight:bold;" />
+                                            </p:column>
+                                            <p:column>
+                                                <h:outputText value="#{impostoMB.totalBrutoResource}">
+                                                    <f:convertNumber type="currency" currencySymbol="" locale="pt-BR" />
+                                                </h:outputText>
+                                            </p:column>
+                                            <p:column>
+                                                <h:outputText value="#{msg.imposto}" style="font-weight:bold;"/>
+                                            </p:column>
+                                            <p:column>
+                                                <h:outputText value="#{impostoMB.totalImpsResource}">
+                                                    <f:convertNumber type="currency" currencySymbol="" locale="pt-BR" />
+                                                </h:outputText>
+                                            </p:column>
+                                            <p:column>
+                                                <h:outputText value="#{msg.outros}" style="font-weight:bold;" />
+                                            </p:column>
+                                            <p:column>
+                                                <h:outputText value="#{impostoMB.totalOutrosResource}">
+                                                    <f:convertNumber type="currency" currencySymbol="" locale="pt-BR" />
+                                                </h:outputText>
+                                            </p:column>
+                                            <p:column>
+                                                <h:outputText value="#{msg.liquido}" style="font-weight:bold;" />
+                                            </p:column>
+                                            <p:column>
+                                                <h:outputText value="#{impostoMB.totalLiquidoResource}">
+                                                    <f:convertNumber type="currency" currencySymbol="" locale="pt-BR" />
+                                                </h:outputText>
+                                            </p:column>
+                                        </p:row>
+                                    </p:panelGrid>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p:dataTable id="resource" var="tabela" value="#{impostoMB.pagto.teste}"  >
+                                        <f:facet name="header"> <h:outputText value="#{msg.resource}" /> </f:facet>
+                                        <p:column > 
+                                            <p:panelGrid columns="1" styleClass="semBorda" >
+                                                <h:outputText value="Bruto"/>
+                                                <h:outputText value="Imposto" />
+                                                <h:outputText value="Outros" />
+                                                <h:outputText value="Líquido" />
+                                            </p:panelGrid>
+                                        </p:column>
+
+                                         <p:columns value="#{impostoMB.pagto.valores}" var="column" columnIndexVar="colIndex">
+                                            <f:facet name="header">
+                                                #{column.mes}
+                                            </f:facet>
+
+                                            <p:inputText id="vlrBrutoF" value="#{column.bruto}" size="5" maxlength="8" style="text-align: right;" >
+                                                <f:convertNumber type="currency" currencySymbol="" locale="pt-BR" />
+                                            </p:inputText>
+                                            
+                                            <p:inputText id="vlrImposto" value="#{column.imposto}" size="5" maxlength="8" style="text-align: right;" >
+                                                <f:convertNumber type="currency" currencySymbol="" locale="pt-BR" />
+                                            </p:inputText>
+
+                                            <p:inputText id="vlrOutros" value="#{column.outros}" size="5" maxlength="8" style="text-align: right;" >
+                                                <f:convertNumber type="currency" currencySymbol="" locale="pt-BR" />
+                                            </p:inputText>
+                                            
+                                            <p:inputText id="vlrLiquidoF" value="#{column.liquido}" size="5" maxlength="8" style="text-align: right;" >
+                                                <f:convertNumber type="currency" currencySymbol="" locale="pt-BR" />
+                                            </p:inputText>
+                                        </p:columns>
+
+                                    </p:dataTable>  
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <p:panelGrid id="panelTotais2" >
+                                        <p:row>
+                                            <f:facet name="header">
+                                                <h:outputText value="#{msg.totais}" />
+                                            </f:facet>
+                                        </p:row>
+                                        <p:row>
+                                            <p:column>
+                                                <h:outputText value="#{msg.bruto}" style="font-weight:bold;" />
+                                            </p:column>
+                                            <p:column>
+                                                <h:outputText value="#{impostoMB.totalBrutoResource}">
+                                                    <f:convertNumber type="currency" currencySymbol="" locale="pt-BR" />
+                                                </h:outputText>
+                                            </p:column>
+                                            <p:column>
+                                                <h:outputText value="#{msg.imposto}" style="font-weight:bold;"/>
+                                            </p:column>
+                                            <p:column>
+                                                <h:outputText value="#{impostoMB.totalImpsResource}">
+                                                    <f:convertNumber type="currency" currencySymbol="" locale="pt-BR" />
+                                                </h:outputText>
+                                            </p:column>
+                                            <p:column>
+                                                <h:outputText value="#{msg.outros}" style="font-weight:bold;" />
+                                            </p:column>
+                                            <p:column>
+                                                <h:outputText value="#{impostoMB.totalOutrosResource}">
+                                                    <f:convertNumber type="currency" currencySymbol="" locale="pt-BR" />
+                                                </h:outputText>
+                                            </p:column>
+                                            <p:column>
+                                                <h:outputText value="#{msg.liquido}" style="font-weight:bold;" />
+                                            </p:column>
+                                            <p:column>
+                                                <h:outputText value="#{impostoMB.totalLiquidoResource}">
+                                                    <f:convertNumber type="currency" currencySymbol="" locale="pt-BR" />
+                                                </h:outputText>
+                                            </p:column>
+                                            <p:column>
+                                                <p:commandButton id="btTotalizarValores" value="#{msg.exibirGrafico}" ajax="true"
+                                                                 process="panelTotais2" partialSubmit="true"
+                                                                 onclick="PF('dlg2').show();"  />
+                                                
+                                                <p:commandButton id="modalDialogButton" value="Modal" onclick="PF('dlg2').show();" type="button"/>
+                                            </p:column>
+                                        </p:row>
+                                    </p:panelGrid>
+                                </td>
+                            </tr>
+
+                        </table>
+                    </div>
+                        <p:dialog id="modalDialog" header="Relação Bruto X Impostos" width="500px" position="center"
+                                  widgetVar="dlg2" modal="true" closeOnEscape="true" resizable="false" > 
+                          <p:pieChart id="grafico" value="#{impostoMB.grafico}"
+                                      legendPosition="e" fill="false" showDataLabels="true"  
+                                      sliceMargin="5" diameter="150"
+                                      style="width:400px;height:300px"/>
+                        </p:dialog>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <title>Impostos</title>
+        <h:outputStylesheet name="#{pageContext.request.contextPath}css/style.css" /> 
+    </h:head>
+
+    <h:body  style="background-color:#D8D8D8;" >  
+        <p:panelGrid style="background-color:#D8D8D8; border-style: hidden !important; margin: 0 auto; width: 1024px; " >
+            <p:row >
+                <p:column colspan="3" style="background-color:#D8D8D8; border-style: hidden !important; padding-left: 175px;"  >
+                    <ui:insert name="cabecalho" >
+                        <ui:include src="/template/topo.xhtml" />
+                    </ui:insert>
+                </p:column>
+            </p:row>
+
+            <p:row >
+                <p:column width="22%" style="background-color:#D8D8D8; border-style: hidden !important; " />
+                <p:column width="56%" style="background-color:#D8D8D8; border-style: hidden !important;" >
+                    <ui:insert name="corpo" >
+                        <ui:include src="/template/corpo.xhtml" />
+                    </ui:insert>
+                </p:column>
+                <p:column width="22%" style="background-color:#D8D8D8; border-style: hidden !important;" />
+            </p:row>
+
+            <p:row>
+                <p:column colspan="3" style="background-color:#D8D8D8; border-style: hidden !important;" >
+                    <ui:insert name="rodape" >
+                        <ui:include src="/template/rodape.xhtml" />
+                    </ui:insert>
+                </p:column>
+            </p:row>
+        </p:panelGrid>
+    </h:body>
+</html>

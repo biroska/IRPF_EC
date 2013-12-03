@@ -1,0 +1,69 @@
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui" >
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:outputStylesheet library="css" name="style.css"  />
+        <ui:composition template="/template/layout.xhtml">
+            <ui:define name="corpo">
+                <h:form id="form" >
+                    <div align="center" >
+
+                        <table style="height: 250px;" width="100%" >
+                            <tr valign="middle" align="center">
+                                <td>
+                                    <p:panel id="panel" style="width: 650px;">
+                                        <p:row>
+                                            <p:column>
+                                                <p:messages id="msgsAutomaticas"/>
+                                            </p:column>
+                                        </p:row>
+
+                                        <p:panelGrid id="panelGrid" style="width: 534px;">
+
+                                            <f:facet name="header">
+                                                <p:row>
+                                                    <p:column colspan="2">Login</p:column>
+                                                </p:row>
+                                            </f:facet>
+                                            <p:row>
+                                                <p:column>
+                                                    <h:outputLabel for="usuario" value="#{msg.loginUsuario}" />  
+                                                </p:column>
+                                                <p:column>
+                                                    <h:message for="usuario" />
+                                                    <p:inputText id="usuario" label="#{msg.loginUsuario}" value="#{loginMB.usuario}" maxlength="8" size="10" />
+                                                </p:column>
+                                            </p:row>
+                                            <p:row>
+                                                <p:column>
+                                                    <h:outputLabel for="senha" value="#{msg.loginPass}"/>
+                                                </p:column>
+                                                <p:column>
+                                                    <p:password id="senha" label="#{msg.loginPass}" value="#{loginMB.senha}" maxlength="8" size="10"/>
+                                                </p:column>
+                                            </p:row>
+
+                                            <f:facet name="footer">  
+                                                <p:row>
+                                                    <p:column id="colunas" colspan="2" style="text-align: center;" >
+                                                        <p:commandButton type="submit" value="#{msg.botaoEntrar}" action="#{loginMB.controleAcesso}" update="panel" icon="ui-icon-person" />  
+                                                    </p:column>
+                                                </p:row>
+                                            </f:facet>
+
+                                        </p:panelGrid> 
+                                    </p:panel>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>            
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

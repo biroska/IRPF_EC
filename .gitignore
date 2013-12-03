@@ -1,17 +1,21 @@
-+#################
-+## Eclipse
-+#################
-+
-+bin/
-+tmp/
-+*.tmp
-+*.bak
-+
-+# CDT-specific
-+.cproject
-+
-+# PDT-specific
-+.buildpath
-+*.class
-+*.zip
-+*.rar
+#################
+## Eclipse
+#################
+
+*.pydevproject
+.project
+.metadata
+bin/
+*.swp
+*~.nib
+local.properties
+.classpath
+.settings/
+.loadpath
+
+# CDT-specific
+.cproject
+
+# PDT-specific
+.buildpath
+*.class
