@@ -18,13 +18,13 @@ public class Constantes {
 
         public salarios() {
         }
-        public static final Double salarioFECAP = 1000D;
+        public static final Double salarioFECAP = 2137.84D;
         public static final Double salarioResource = 1500D;
     }
 
-    public static class contribuicaoSindical {
+    public static class outros {
 
-        public static final Double contribuicaoFECAP = 0D;
+        public static final Double planoDentalFECAP = 23.60D;
         public static final Double contribuicaoResource = 16.9D;
     }
 
@@ -102,4 +102,10 @@ public class Constantes {
         public static final int OUTROS = 3;
         public static final int LIQUIDO = 4;
     }
+ 
+ public static class aliquotaFGTS {
+
+     public static final Double aliquota = 8.0D;
+ }
+
 }

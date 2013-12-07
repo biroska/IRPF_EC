@@ -1,8 +1,11 @@
 package modelos;
 
+import Calculos.FGTS;
 import Calculos.INSS;
 import Calculos.IRRF;
+
 import java.util.ArrayList;
+
 import uteis.Constantes;
 import uteis.Constantes.empresas;
 import uteis.Constantes.salarios;
@@ -12,6 +15,8 @@ public class Pagamentos {
     public Pagamentos(String empresa) {
 
         Double vlrBruto = null;
+        Double vlrINSSaux = null;
+        
         valores = new ArrayList<Salario>(14);
         
         for (int i = 0; i <= 13; i++) {
@@ -41,11 +46,22 @@ public class Pagamentos {
         }
 
         for (int i = 0; i <= 13; i++) {
+        	vlrINSSaux = 0.0;
             this.valores.get(i).setBruto(vlrBruto);
-            this.valores.get(i).setImposto(INSS.calculo(this.valores.get(i).getBruto()) + 
-                                           IRRF.calculo(this.valores.get(i).getBruto())  );
             
-            this.valores.get(i).setOutros( Constantes.contribuicaoSindical.contribuicaoResource );
+            vlrINSSaux = INSS.calculo(this.valores.get(i).getBruto());
+            
+            this.valores.get(i).setImposto( vlrINSSaux +
+// O FGTS não é descontado do empregado     FGTS.calculo( this.valores.get(i).getBruto() ) +
+            								IRRF.calculo(this.valores.get(i).getBruto() -vlrINSSaux ) );
+            
+           if (empresas.FECAP.equalsIgnoreCase(empresa)) {
+        	   this.valores.get(i).setOutros( Constantes.outros.planoDentalFECAP);
+
+            } else if (empresas.Resource.equalsIgnoreCase(empresa)) {
+            	this.valores.get(i).setOutros( Constantes.outros.contribuicaoResource );
+            }
+
             
             this.valores.get(i).setLiquido(   this.valores.get(i).getBruto() 
                                             - this.valores.get(i).getImposto()
