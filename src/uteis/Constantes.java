@@ -25,6 +25,7 @@ public class Constantes {
     public static class outros {
 
         public static final Double planoDentalFECAP = 23.60D;
+        public static final Double descFeriasFECAP = 22.92D;
         public static final Double contribuicaoResource = 16.9D;
     }
 

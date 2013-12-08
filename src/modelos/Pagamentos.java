@@ -47,21 +47,26 @@ public class Pagamentos {
 
         for (int i = 0; i <= 13; i++) {
         	vlrINSSaux = 0.0;
-            this.valores.get(i).setBruto(vlrBruto);
+        	
+            if (empresas.FECAP.equalsIgnoreCase(empresa)) {
+         	   this.valores.get(i).setOutros( Constantes.outros.planoDentalFECAP);
+
+             } else if (empresas.Resource.equalsIgnoreCase(empresa)) {
+             	this.valores.get(i).setOutros( Constantes.outros.contribuicaoResource );
+             }
+        	
+        	if ( i == 13){ // Férias
+        		this.valores.get(i).setBruto(vlrBruto + vlrBruto/3);
+        		this.valores.get(i).setOutros( Constantes.outros.descFeriasFECAP );
+        	}else{
+        		this.valores.get(i).setBruto(vlrBruto );
+        	}
             
             vlrINSSaux = INSS.calculo(this.valores.get(i).getBruto());
             
             this.valores.get(i).setImposto( vlrINSSaux +
 // O FGTS não é descontado do empregado     FGTS.calculo( this.valores.get(i).getBruto() ) +
             								IRRF.calculo(this.valores.get(i).getBruto() -vlrINSSaux ) );
-            
-           if (empresas.FECAP.equalsIgnoreCase(empresa)) {
-        	   this.valores.get(i).setOutros( Constantes.outros.planoDentalFECAP);
-
-            } else if (empresas.Resource.equalsIgnoreCase(empresa)) {
-            	this.valores.get(i).setOutros( Constantes.outros.contribuicaoResource );
-            }
-
             
             this.valores.get(i).setLiquido(   this.valores.get(i).getBruto() 
                                             - this.valores.get(i).getImposto()
