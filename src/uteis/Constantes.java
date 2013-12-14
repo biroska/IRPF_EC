@@ -33,8 +33,8 @@ public class Constantes {
 
         meses() {
         }
-        public static final List<String> meses = Arrays.asList("Janeiro", "Fevereiro", "MarÃ§o", "Abril", "Maio", "Junho", "Julho",
-                "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro", "13Âº", "FÃ©rias");
+        public static final List<String> meses = Arrays.asList("Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho",
+                "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro", "13º", "Férias");
     }
 
     public static class faixaINSS {
