@@ -12,8 +12,56 @@
 				<div align="center">
 					<table width="1350px">
 						<tr valign="middle" align="center">
-							<td><p:accordionPanel dynamic="true" cache="true" activeIndex="1" multiple="false" >
-									<p:tab title="#{msg.fecap}">
+							<td><p:panelGrid id="panelTotaisCols1" columns="9">
+									<f:facet name="header">
+										<h:outputText value="#{msg.fecap}" />
+									</f:facet>
+									<h:outputFormat value="#{msg['bruto']}"
+										style="font-weight:bold;">
+										<f:param value=":" />
+									</h:outputFormat>
+									<h:outputText value="#{impostoMB.totalBrutoFECAP}">
+										<f:convertNumber type="currency" currencySymbol=""
+											locale="pt-BR" />
+									</h:outputText>
+									<h:outputFormat value="#{msg['imposto']}"
+										style="font-weight:bold;">
+										<f:param value=":" />
+									</h:outputFormat>
+									<h:outputText value="#{impostoMB.totalImpsFECAP}">
+										<f:convertNumber type="currency" currencySymbol=""
+											locale="pt-BR" />
+									</h:outputText>
+									<h:outputFormat value="#{msg['outros']}"
+										style="font-weight:bold;">
+										<f:param value=":" />
+									</h:outputFormat>
+									<h:outputText value="#{impostoMB.totalOutrosFECAP}">
+										<f:convertNumber type="currency" currencySymbol=""
+											locale="pt-BR" />
+									</h:outputText>
+									<h:outputFormat value="#{msg['liquido']}"
+										style="font-weight:bold;">
+										<f:param value=":" />
+									</h:outputFormat>
+									<h:outputText value="#{impostoMB.totalLiquidoFECAP}">
+										<f:convertNumber type="currency" currencySymbol=""
+											locale="pt-BR" />
+									</h:outputText>
+									<p:commandButton id="btTotalizarValoresCols1"
+										value="#{msg.exibirGrafico}" ajax="true" process="@this"
+										partialSubmit="true" update="panelGrafico"
+										actionListener="#{impostoMB.montaGrafico}"
+										oncomplete="PF('dlg2').show();">
+										<f:attribute name="empresa" value="FECAP" />
+									</p:commandButton>
+								</p:panelGrid></td>
+						</tr>
+
+						<tr>
+							<td><p:accordionPanel dynamic="true" cache="true"
+									activeIndex="1" multiple="false">
+									<p:tab title="#{msg.detalhes}">
 										<p:dataTable id="fecap" var="tabela"
 											value="#{impostoMB.pagtoFECAP.teste}">
 											<f:facet name="header">
@@ -71,78 +119,57 @@
 									</p:tab>
 								</p:accordionPanel></td>
 						</tr>
-
-						<tr>
-							<td><p:panelGrid id="panelTotais1">
-									<p:row>
-										<f:facet name="header">
-											<h:outputText value="#{msg.totais}" />
-										</f:facet>
-									</p:row>
-									<p:row>
-										<p:column>
-											<h:outputFormat value="#{msg['bruto']}"
-												style="font-weight:bold;">
-												<f:param value=":" />
-											</h:outputFormat>
-										</p:column>
-										<p:column>
-											<h:outputText value="#{impostoMB.totalBrutoFECAP}">
-												<f:convertNumber type="currency" currencySymbol=""
-													locale="pt-BR" />
-											</h:outputText>
-										</p:column>
-										<p:column>
-											<h:outputFormat value="#{msg['imposto']}"
-												style="font-weight:bold;">
-												<f:param value=":" />
-											</h:outputFormat>
-										</p:column>
-										<p:column>
-											<h:outputText value="#{impostoMB.totalImpsFECAP}">
-												<f:convertNumber type="currency" currencySymbol=""
-													locale="pt-BR" />
-											</h:outputText>
-										</p:column>
-										<p:column>
-											<h:outputFormat value="#{msg['outros']}"
-												style="font-weight:bold;">
-												<f:param value=":" />
-											</h:outputFormat>
-										</p:column>
-										<p:column>
-											<h:outputText value="#{impostoMB.totalOutrosFECAP}">
-												<f:convertNumber type="currency" currencySymbol=""
-													locale="pt-BR" />
-											</h:outputText>
-										</p:column>
-										<p:column>
-											<h:outputFormat value="#{msg['liquido']}"
-												style="font-weight:bold;">
-												<f:param value=":" />
-											</h:outputFormat>
-										</p:column>
-										<p:column>
-											<h:outputText value="#{impostoMB.totalLiquidoFECAP}">
-												<f:convertNumber type="currency" currencySymbol=""
-													locale="pt-BR" />
-											</h:outputText>
-										</p:column>
-										<p:column>
-											<p:commandButton id="btTotalizarValores1"
+						<tr valign="middle" align="center">
+							<td><p:panelGrid id="panelTotaisCols2" columns="9">
+									<f:facet name="header">
+										<h:outputText value="#{msg.resource}" />
+									</f:facet>
+									<h:outputFormat value="#{msg['bruto']}"
+										style="font-weight:bold;">
+										<f:param value=":" />
+									</h:outputFormat>
+									<h:outputText value="#{impostoMB.totalBrutoResource}">
+										<f:convertNumber type="currency" currencySymbol=""
+											locale="pt-BR" />
+									</h:outputText>
+									<h:outputFormat value="#{msg['imposto']}"
+										style="font-weight:bold;">
+										<f:param value=":" />
+									</h:outputFormat>
+									<h:outputText value="#{impostoMB.totalImpsResource}">
+										<f:convertNumber type="currency" currencySymbol=""
+											locale="pt-BR" />
+									</h:outputText>
+									<h:outputFormat value="#{msg['outros']}"
+										style="font-weight:bold;">
+										<f:param value=":" />
+									</h:outputFormat>
+									<h:outputText value="#{impostoMB.totalOutrosResource}">
+										<f:convertNumber type="currency" currencySymbol=""
+											locale="pt-BR" />
+									</h:outputText>
+									<h:outputFormat value="#{msg['liquido']}"
+										style="font-weight:bold;">
+										<f:param value=":" />
+									</h:outputFormat>
+									<h:outputText value="#{impostoMB.totalLiquidoResource}">
+										<f:convertNumber type="currency" currencySymbol=""
+											locale="pt-BR" />
+									</h:outputText>
+											<p:commandButton id="btTotalizarValores2"
 												value="#{msg.exibirGrafico}" ajax="true" process="@this"
 												partialSubmit="true" update="panelGrafico"
 												actionListener="#{impostoMB.montaGrafico}"
 												oncomplete="PF('dlg2').show();">
-												<f:attribute name="empresa" value="FECAP" />
+												<f:attribute name="empresa" value="RESOURCE" />
 											</p:commandButton>
-										</p:column>
-									</p:row>
 								</p:panelGrid></td>
 						</tr>
-						<tr valign="middle" align="center">
-							<td><p:accordionPanel dynamic="true" cache="true" activeIndex="1" multiple="false" >
-									<p:tab title="#{msg.resource}">
+
+						<tr>
+							<td><p:accordionPanel dynamic="true" cache="true" activeIndex="1"
+									multiple="false">
+									<p:tab title="#{msg.detalhes}">
 										<p:dataTable id="resource" var="tabela"
 											value="#{impostoMB.pagto.teste}">
 											<f:facet name="header">
@@ -199,70 +226,6 @@
 										</p:dataTable>
 									</p:tab>
 								</p:accordionPanel></td>
-						</tr>
-
-						<tr>
-							<td><p:panelGrid id="panelTotais2">
-									<p:row>
-										<p:column>
-											<h:outputFormat value="#{msg['bruto']}"
-												style="font-weight:bold;">
-												<f:param value=":" />
-											</h:outputFormat>
-										</p:column>
-										<p:column>
-											<h:outputText value="#{impostoMB.totalBrutoResource}">
-												<f:convertNumber type="currency" currencySymbol=""
-													locale="pt-BR" />
-											</h:outputText>
-										</p:column>
-										<p:column>
-											<h:outputFormat value="#{msg['imposto']}"
-												style="font-weight:bold;">
-												<f:param value=":" />
-											</h:outputFormat>
-										</p:column>
-										<p:column>
-											<h:outputText value="#{impostoMB.totalImpsResource}">
-												<f:convertNumber type="currency" currencySymbol=""
-													locale="pt-BR" />
-											</h:outputText>
-										</p:column>
-										<p:column>
-											<h:outputFormat value="#{msg['outros']}"
-												style="font-weight:bold;">
-												<f:param value=":" />
-											</h:outputFormat>
-										</p:column>
-										<p:column>
-											<h:outputText value="#{impostoMB.totalOutrosResource}">
-												<f:convertNumber type="currency" currencySymbol=""
-													locale="pt-BR" />
-											</h:outputText>
-										</p:column>
-										<p:column>
-											<h:outputFormat value="#{msg['liquido']}"
-												style="font-weight:bold;">
-												<f:param value=":" />
-											</h:outputFormat>
-										</p:column>
-										<p:column>
-											<h:outputText value="#{impostoMB.totalLiquidoResource}">
-												<f:convertNumber type="currency" currencySymbol=""
-													locale="pt-BR" />
-											</h:outputText>
-										</p:column>
-										<p:column>
-											<p:commandButton id="btTotalizarValores2"
-												value="#{msg.exibirGrafico}" ajax="true" process="@this"
-												partialSubmit="true" update="panelGrafico"
-												actionListener="#{impostoMB.montaGrafico}"
-												oncomplete="PF('dlg2').show();">
-												<f:attribute name="empresa" value="RESOURCE" />
-											</p:commandButton>
-										</p:column>
-									</p:row>
-								</p:panelGrid></td>
 						</tr>
 						<tr>
 							<td><p:panelGrid>

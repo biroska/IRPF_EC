@@ -47,19 +47,40 @@ public class Pagamentos {
 
         for (int i = 0; i <= 13; i++) {
         	vlrINSSaux = 0.0;
+        	this.valores.get(i).setBruto(vlrBruto );
         	
             if (empresas.FECAP.equalsIgnoreCase(empresa)) {
-         	   this.valores.get(i).setOutros( Constantes.outros.planoDentalFECAP);
+            	
+             	if ( i == 0 ||i == 1 ){
+             		this.valores.get(i).setBruto( salarios.zero );
+            	} else if ( i == 2){
+            		this.valores.get(i).setBruto( salarios.salarioFECAPParcial );
+            	}
+            	
+            	this.valores.get(i).setOutros( Constantes.outros.planoDentalFECAP);
+         	   
+            	if ( this.valores.get(i).getBruto() == 0.0  ){
+             		this.valores.get(i).setOutros( Constantes.zero );
+             	}
 
              } else if (empresas.Resource.equalsIgnoreCase(empresa)) {
+            	 
+             	if ( i == 0 ||i == 1 ){
+             		this.valores.get(i).setBruto( salarios.zero );
+            	} else if ( i == 2){
+            		this.valores.get(i).setBruto( salarios.salarioResourceParcial );
+            	}
+            	
              	this.valores.get(i).setOutros( Constantes.outros.contribuicaoResource );
+             	
+             	if ( this.valores.get(i).getBruto() == 0.0  ){
+             		this.valores.get(i).setOutros( Constantes.zero );
+             	}
              }
         	
         	if ( i == 13){ // Férias
-        		this.valores.get(i).setBruto(vlrBruto + vlrBruto/3);
+        		this.valores.get(i).setBruto( this.valores.get(i).getBruto() + this.valores.get(i).getBruto()/3);
         		this.valores.get(i).setOutros( Constantes.outros.descFeriasFECAP );
-        	}else{
-        		this.valores.get(i).setBruto(vlrBruto );
         	}
             
             vlrINSSaux = INSS.calculo(this.valores.get(i).getBruto());

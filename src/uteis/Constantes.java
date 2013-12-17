@@ -5,6 +5,8 @@ import java.util.List;
 
 public class Constantes {
 
+	public static Double zero = 0.0; 
+	
     public static class empresas {
 
         public empresas() {
@@ -18,8 +20,11 @@ public class Constantes {
 
         public salarios() {
         }
+        public static final Double zero = 0.0D;
         public static final Double salarioFECAP = 2137.84D;
-        public static final Double salarioResource = 1500D;
+        public static final Double salarioFECAPParcial = 2408.44D;
+        public static final Double salarioResource = 1690.44D;
+        public static final Double salarioResourceParcial = 1287.96D;
     }
 
     public static class outros {
