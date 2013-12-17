@@ -14,6 +14,7 @@ public class Constantes {
         public static final String FECAP = "FECAP";
         public static final String Resource = "Resource";
         public static final String Consolidacao = "Consolidacao";
+        public static final String direitoAutoral = "direitoAutoral";
     }
 
     public static class salarios {

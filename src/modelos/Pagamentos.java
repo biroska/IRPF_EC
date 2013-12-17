@@ -53,29 +53,23 @@ public class Pagamentos {
             	
              	if ( i == 0 ||i == 1 ){
              		this.valores.get(i).setBruto( salarios.zero );
+             		this.valores.get(i).setOutros( Constantes.zero );
             	} else if ( i == 2){
             		this.valores.get(i).setBruto( salarios.salarioFECAPParcial );
+            	} else{
+            		this.valores.get(i).setOutros( Constantes.outros.planoDentalFECAP);            		
             	}
             	
-            	this.valores.get(i).setOutros( Constantes.outros.planoDentalFECAP);
-         	   
-            	if ( this.valores.get(i).getBruto() == 0.0  ){
-             		this.valores.get(i).setOutros( Constantes.zero );
-             	}
-
              } else if (empresas.Resource.equalsIgnoreCase(empresa)) {
             	 
              	if ( i == 0 ||i == 1 ){
              		this.valores.get(i).setBruto( salarios.zero );
+             		this.valores.get(i).setOutros( Constantes.zero );
             	} else if ( i == 2){
             		this.valores.get(i).setBruto( salarios.salarioResourceParcial );
+            	} else {
+            		this.valores.get(i).setOutros( Constantes.outros.contribuicaoResource );            		
             	}
-            	
-             	this.valores.get(i).setOutros( Constantes.outros.contribuicaoResource );
-             	
-             	if ( this.valores.get(i).getBruto() == 0.0  ){
-             		this.valores.get(i).setOutros( Constantes.zero );
-             	}
              }
         	
         	if ( i == 13){ // Férias
@@ -92,6 +86,23 @@ public class Pagamentos {
             this.valores.get(i).setLiquido(   this.valores.get(i).getBruto() 
                                             - this.valores.get(i).getImposto()
                                             - this.valores.get(i).getOutros() );
+        }
+        
+        if ( empresas.direitoAutoral.equalsIgnoreCase(empresa) ){
+        	this.valores.get(0).setBruto(salarios.zero );
+        	this.valores.get(1).setBruto(salarios.zero );
+        	this.valores.get(2).setBruto(vlrBruto );
+        	this.valores.get(3).setBruto(vlrBruto );
+        	this.valores.get(4).setBruto(vlrBruto );
+        	this.valores.get(5).setBruto(vlrBruto );
+        	this.valores.get(6).setBruto(vlrBruto );
+        	this.valores.get(7).setBruto(vlrBruto );
+        	this.valores.get(8).setBruto(vlrBruto );
+        	this.valores.get(9).setBruto(vlrBruto );
+        	this.valores.get(10).setBruto(vlrBruto );
+        	this.valores.get(11).setBruto(vlrBruto );
+        	this.valores.get(12).setBruto(vlrBruto );
+        	this.valores.get(13).setBruto(salarios.zero );
         }
 
     }

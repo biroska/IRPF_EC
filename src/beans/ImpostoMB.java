@@ -52,6 +52,7 @@ public class ImpostoMB implements Serializable {
 
     private Pagamentos pagto;
     private Pagamentos pagtoFECAP;
+    private Pagamentos direitosAutorais;
     private boolean exibeGrafico;
 
     public ImpostoMB() {
@@ -61,6 +62,7 @@ public class ImpostoMB implements Serializable {
 
         pagto = new Pagamentos(Constantes.empresas.Resource);
         pagtoFECAP = new Pagamentos(Constantes.empresas.FECAP);
+        direitosAutorais = new Pagamentos(Constantes.empresas.direitoAutoral);
         
         totalizarValores();
     }
@@ -277,4 +279,13 @@ public class ImpostoMB implements Serializable {
 	public void setImpostoPagar(Double impostoPagar) {
 		this.impostoPagar = impostoPagar;
 	}
+
+	public Pagamentos getDireitosAutorais() {
+		return direitosAutorais;
+	}
+
+	public void setDireitosAutorais(Pagamentos direitosAutorais) {
+		this.direitosAutorais = direitosAutorais;
+	}
+	
 }
