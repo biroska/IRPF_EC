@@ -120,10 +120,14 @@
 								</p:accordionPanel></td>
 						</tr>
 						<tr valign="middle" align="center">
-							<td><p:panelGrid id="panelTotaisCols2" columns="9">
+							<td><p:panelGrid id="panelTotaisCols2" columns="10">
 									<f:facet name="header">
 										<h:outputText value="#{msg.resource}" />
 									</f:facet>
+									<h:outputFormat value="#{msg['CLT']}"
+										style="font-weight:bold;">
+										<f:param value="" />
+									</h:outputFormat>
 									<h:outputFormat value="#{msg['bruto']}"
 										style="font-weight:bold;">
 										<f:param value=":" />
@@ -224,6 +228,64 @@
 											</p:columns>
 
 										</p:dataTable>
+										
+<!-- DIREITOS AUTORAIS -->										
+										<p:dataTable id="direitosAutorais" var="tabela"
+											value="#{impostoMB.pagto.teste}">
+											<f:facet name="header">
+												<h:outputText value="#{msg.direitosAutorais}" />
+											</f:facet>
+											<p:column>
+												<p:panelGrid columns="1" styleClass="semBorda">
+													<h:outputFormat value="#{msg['bruto']}">
+														<f:param value="" />
+													</h:outputFormat>
+													<h:outputFormat value="#{msg['imposto']}">
+														<f:param value="" />
+													</h:outputFormat>
+													<h:outputFormat value="#{msg['outros']}">
+														<f:param value="" />
+													</h:outputFormat>
+													<h:outputFormat value="#{msg['liquido']}">
+														<f:param value="" />
+													</h:outputFormat>
+												</p:panelGrid>
+											</p:column>
+
+											<p:columns value="#{impostoMB.direitosAutorais.valores}" var="column"
+												columnIndexVar="colIndex">
+												<f:facet name="header">
+                                                #{column.mes}
+                                            </f:facet>
+
+												<p:inputText id="vlrBrutoDA" value="#{column.bruto}" size="5"
+													maxlength="8" style="text-align: right;">
+													<f:convertNumber type="currency" currencySymbol=""
+														locale="pt-BR" />
+												</p:inputText>
+
+												<p:inputText id="vlrImpostoDA" value="#{column.imposto}"
+													size="5" maxlength="8" style="text-align: right;">
+													<f:convertNumber type="currency" currencySymbol=""
+														locale="pt-BR" />
+												</p:inputText>
+
+												<p:inputText id="vlrOutrosDA" value="#{column.outros}"
+													size="5" maxlength="8" style="text-align: right;">
+													<f:convertNumber type="currency" currencySymbol=""
+														locale="pt-BR" />
+												</p:inputText>
+
+												<p:inputText id="vlrLiquidoDA" value="#{column.liquido}"
+													size="5" maxlength="8" style="text-align: right;">
+													<f:convertNumber type="currency" currencySymbol=""
+														locale="pt-BR" />
+												</p:inputText>
+											</p:columns>
+
+										</p:dataTable>
+
+										
 									</p:tab>
 								</p:accordionPanel></td>
 						</tr>

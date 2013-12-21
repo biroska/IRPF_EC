@@ -24,7 +24,7 @@ public class Constantes {
         public static final Double zero = 0.0D;
         public static final Double salarioFECAP = 2137.84D;
         public static final Double salarioFECAPParcial = 2408.44D;
-        public static final Double salarioResource = 1690.44D;
+        public static final Double salarioResource = 1609.44D;
         public static final Double salarioResourceParcial = 1287.96D;
     }
 
@@ -32,7 +32,8 @@ public class Constantes {
 
         public static final Double planoDentalFECAP = 23.60D;
         public static final Double descFeriasFECAP = 22.92D;
-        public static final Double contribuicaoResource = 16.9D;
+        public static final Double contribuicaoResource = 16.10D;
+        public static final Double contribuicaoResourceParcial = 53.67D;
     }
 
     public static class meses {

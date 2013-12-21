@@ -60,9 +60,9 @@ public class ImpostoMB implements Serializable {
         exibeGrafico = false;
         System.out.println("Construtor ImpostoMB... " + exibeGrafico);
 
-        pagto = new Pagamentos(Constantes.empresas.Resource);
-        pagtoFECAP = new Pagamentos(Constantes.empresas.FECAP);
-        direitosAutorais = new Pagamentos(Constantes.empresas.direitoAutoral);
+        pagto = new Pagamentos(Constantes.empresas.Resource, false );
+        pagtoFECAP = new Pagamentos(Constantes.empresas.FECAP, false );
+        direitosAutorais = new Pagamentos(Constantes.empresas.direitoAutoral, true );
         
         totalizarValores();
     }
